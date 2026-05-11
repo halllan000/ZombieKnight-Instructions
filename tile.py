@@ -8,17 +8,15 @@ class Tile(pygame.sprite.Sprite):
         """Initialize the tile"""
         super().__init__()
 
-        self.image = pygame.transform.scale(pygame.image.load(f"images/tiles/Tile ({image_int}).png"), (32, 32))
+        self.image = pygame.transform.scale(pygame.image.load(f"images/tiles/Tile ({image_int}).png"),
+        (32, 32))
         # pygame.image.load(f"images/tiles/Tile ({image_int}).png")
         # (32, 32)
 
         if sub_group is not None:
             sub_group.add(self)
-
         main_group.add(self)
 
         self.rect = self.image.get_rect()
-
-        self.image.topleft = (x, y)
-
+        self.rect.topleft = (x, y)
         self.mask = pygame.mask.from_surface(self.image)
